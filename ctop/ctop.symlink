@@ -1,0 +1,10 @@
+[options]
+  filterStr = ""
+  sortField = "state"
+
+[toggles]
+  allContainers = false
+  enableHeader = true
+  fullRowCursor = true
+  scaleCpu = false
+  sortReversed = false
