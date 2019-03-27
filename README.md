@@ -1,9 +1,9 @@
-# carlos' dotfiles
+# Cid's dotfiles
 
 [![Build Status][tb]][tp]
 [![Powered by Antibody][ab]][ap]
 
-> Config files for ZSH, Java, Ruby, Go, Editors, Terminals and more.
+> Config files for ZSH, Editors, Terminals and more.
 
 ![screenshot 1][scrn1]
 
@@ -11,8 +11,8 @@
 
 [ap]: https://github.com/getantibody/antibody
 [ab]: https://img.shields.io/badge/powered%20by-antibody-blue.svg?style=flat-square
-[tb]: https://img.shields.io/travis/caarlos0/dotfiles/master.svg?style=flat-square
-[tp]: https://travis-ci.org/caarlos0/dotfiles
+[tb]: https://img.shields.io/travis/supercid/dotfiles/master.svg?style=flat-square
+[tp]: https://travis-ci.org/supercid/dotfiles
 [scrn1]: /docs/screenshot1.png
 [scrn2]: /docs/screenshot2.png
 
@@ -33,7 +33,7 @@ First, make sure you have all those things installed:
 Then, run these steps:
 
 ```console
-$ git clone https://github.com/caarlos0/dotfiles.git ~/.dotfiles
+$ git clone https://github.com/supercid/dotfiles.git ~/.dotfiles
 $ cd ~/.dotfiles
 $ ./script/bootstrap
 $ zsh # or just close and open your terminal again.
@@ -46,23 +46,24 @@ $ zsh # or just close and open your terminal again.
 For macOS, I recommend:
 
 - iTerm: a better terminal emulator;
-
-For Linux:
-
-- Terminator: a better terminal emulator;
-
-For both Linux and macOS:
+You can install by running 
+ `brew cask install iterm2`
 
 - [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy):
-better git difs (you'll need to run `dot_update` to apply it);
+better git diffs (you'll need to run `dot_update` to apply it);
 - [`fzf`](https://github.com/junegunn/fzf):
 fuzzy finder, used in `,t` on vim, for example;
-- [`kubectx`](https://github.com/ahmetb/kubectx) for better kubernetes context
-  and namespace switch;
+- [`bat`](https://github.com/sharkdp/bat)
+a cat replacement
+- [`exa`](https://github.com/ogham/exa)
+a ls replacement
+- [`jq`](https://github.com/stedolan/jq)
+a json processor with syntax highlighting
+
 
 ### macOS defaults
 
-You use it by running:
+You use it by running: **Read and tweak it first**
 
 ```console
 $DOTFILES/macos/set-defaults.sh
