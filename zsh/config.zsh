@@ -1,6 +1,9 @@
 #!/bin/zsh
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(${EDITOR} {})+abort'"
+export BLOCKSIZE=1k # Set default blocksize for ls, df, du...
+export XDEBUG_CONFIG="idekey=PHPSTORM" # Trigger xdebug on PHPStorm when running scripts from CLI
 
 fpath=($DOTFILES/functions $fpath)
 
@@ -44,10 +47,6 @@ setopt RM_STAR_SILENT
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-
-# emacs mode
-# I always enter vi mode by mistake
-bindkey -e
 
 # fuzzy find: start to type
 bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
