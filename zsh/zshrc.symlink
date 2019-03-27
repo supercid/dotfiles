@@ -1,27 +1,27 @@
 #!/bin/zsh
-# shortcut to this dotfiles path is $DOTFILES
+# Shortcut to this dotfiles path is $DOTFILES
 export DOTFILES="$HOME/.dotfiles"
 
-# your project folder that we can `c [tab]` to
-export PROJECTS="$HOME/Code"
+# Project folder that we can `c [tab]` to
+export PROJECTS="$HOME/Developer"
 
-# your default editor
-export EDITOR='vim'
-export VEDITOR='code'
+# Default editor
+export EDITOR='subl' # I rather open everything on sublime
+export VEDITOR='subl' # Visual editor
 
-# all of our zsh files
+# All of our zsh files
 typeset -U config_files
 config_files=($DOTFILES/*/*.zsh)
 
-# load the path files
+# Poad the path files
 for file in ${(M)config_files:#*/path.zsh}; do
   source "$file"
 done
 
-# load antibody plugins
+# Load antibody plugins
 source ~/.zsh_plugins.sh
 
-# load everything but the path and completion files
+# Load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source "$file"
 done
@@ -34,14 +34,15 @@ else
   compinit -C -i
 fi
 
-# load every completion after autocomplete loads
+# Load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}; do
   source "$file"
 done
 
 unset config_files updated_at
 
-# use .localrc for SUPER SECRET CRAP that you don't
+# use .localrc for SECRET keys that you don't
 # want in your public, versioned repo.
 # shellcheck disable=SC1090
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.localrc ] && . ~/.localrc
