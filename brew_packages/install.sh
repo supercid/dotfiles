@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Reinstall all of my brew formulae
-xargs brew install < brew_packages.txt
+xargs brew install < $DOTFILES/brew_packages/brew_packages.txt
