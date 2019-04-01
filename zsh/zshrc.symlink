@@ -9,6 +9,10 @@ export PROJECTS="$HOME/Developer"
 export EDITOR='subl' # I rather open everything on sublime
 export VEDITOR='subl' # Visual editor
 
+# oh-my-zsh specific
+DISABLE_AUTO_UPDATE=true
+ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+
 # All of our zsh files
 typeset -U config_files
 config_files=($DOTFILES/*/*.zsh)
