@@ -18,6 +18,7 @@ if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'ncdu' || brew install ncdu
 	brew list | grep -q 'tldr' || brew install tldr
 	brew list | grep -q 'tmux' || brew install tmux
+	brew list | grep -q 'icdiff' || brew install icdiff
 	brew list | grep -q 'speedtest-cli' || brew install speedtest-cli
 	brew cask list | grep -q 'iterm2' || brew cask install iterm2
 	brew cask list | grep -q 'sublime-text' || brew cask install sublime-text
