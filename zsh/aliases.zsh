@@ -6,7 +6,7 @@
 #   -----------------------------------------------------
 	alias reload!='exec "$SHELL" -l'
 	alias zshconfig="${EDITOR} ~/.zshrc"
-	alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
+	alias ohmyzsh="${EDITOR} $(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
 #   -----------------------------------------------------
 #   PHP, the greatest language
