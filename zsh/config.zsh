@@ -2,7 +2,7 @@
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(${EDITOR} {})+abort'"
-export BLOCKSIZE=1k # Set default blocksize for ls, df, du...
+export BLOCKSIZE=1k                    # Set default blocksize for ls, df, du...
 export XDEBUG_CONFIG="idekey=PHPSTORM" # Trigger xdebug on PHPStorm when running scripts from CLI
 
 fpath=($DOTFILES/functions $fpath)
