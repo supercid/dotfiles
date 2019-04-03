@@ -1,20 +1,13 @@
 #!/bin/sh
-URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/FiraCode.zip"
-
+URL="https://github.com/powerline/fonts/archive/2015-12-04.zip"
 install() {
-	curl -L -s -o /tmp/fura.zip "$URL"
-	unzip /tmp/fura.zip -d /tmp/FiraCode
-	cp /tmp/FiraCode/*.ttf "$1"
+	curl -L -s -o /tmp/powerline.zip "$URL"
+	unzip -o /tmp/powerline.zip -d /tmp/PowerlineFonts
+	cp /tmp/PowerlineFonts/fonts-2015-12-04/*/*.ttf "$1"
 }
 
 if [ "$(uname -s)" = "Darwin" ]; then
-	if command -v brew >/dev/null 2>&1; then
-		brew tap | grep -q 'homebrew/cask-fonts' || brew tap homebrew/cask-fonts
-		brew cask list | grep -q 'font-firacode-nerd-font' || brew cask install font-firacode-nerd-font
-		brew cask list | grep -q 'font-firacode-nerd-font-mono' || brew cask install font-firacode-nerd-font-mono		
-	else
-		install ~/Library/Fonts
-	fi
+	install ~/Library/Fonts
 else
 	mkdir -p ~/.fonts
 	install ~/.fonts
