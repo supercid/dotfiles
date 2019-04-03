@@ -3,13 +3,13 @@ if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'bat' || brew install bat
 	brew list | grep -q 'ctop' || brew install ctop
 	brew list | grep -q 'dnsmasq' || brew install dnsmasq
-	
+
 	brew tap | grep -q 'moncho/dry' || brew tap moncho/dry
 	brew list | grep -q 'dry' || brew install dry
 
 	brew tap | grep -q 'sambadevi/powerlevel9k' || brew tap sambadevi/powerlevel9k
 	brew list | grep -q 'powerlevel9k' || brew install powerlevel9k@0.6.7
-	
+
 	brew list | grep -q 'exa' || brew install exa
 	brew list | grep -q 'fasd' || brew install fasd
 	brew list | grep -q 'fzf' || brew install fzf
