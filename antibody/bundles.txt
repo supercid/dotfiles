@@ -6,6 +6,7 @@ caarlos0/zsh-mkc
 caarlos0/zsh-open-pr kind:path
 mafredri/zsh-async
 robbyrussell/oh-my-zsh
+robbyrussell/oh-my-zsh path:plugins/git
 rupa/z
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
