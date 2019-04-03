@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/zsh
 # This file hold most of my aliases
 
 #   -----------------------------------------------------
 #   Shell
 #   -----------------------------------------------------
 alias reload!='exec "$SHELL" -l'
-alias zshconfig="${EDITOR} ~/.zshrc"
-alias ohmyzsh="${EDITOR} $(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+alias zshconfig='${EDITOR} ~/.zshrc'
+alias ohmyzsh='${EDITOR} $(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh'
 
 #   -----------------------------------------------------
 #   PHP, the greatest language
@@ -97,15 +97,16 @@ alias which='type -a'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'       # path:         Echo all executable Paths
 alias fix_stty='stty sane'                # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On' # cic:          Make tab-completion case-insensitive
-mcd() { mkdir -p "$1" && cd "$1"; }       # mcd:          Makes new Dir and jumps inside
-trash() { command mv "$@" ~/.Trash; }     # trash:        Moves a file to the MacOS trash
-ql() { qlmanage -p "$*" >&/dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
-alias DT='tee ~/Desktop/terminalOut.txt'  # DT:           Pipe content to file on MacOS Desktop
-alias cat='bat'                           # cat with syntax highliting and less (navigate using vi keystrokes)
+# shellcheck disable=SC2164
+mcd() { mkdir -p "$1" && cd "$1"; }      # mcd:          Makes new Dir and jumps inside
+trash() { command mv "$@" ~/.Trash; }    # trash:        Moves a file to the MacOS trash
+ql() { qlmanage -p "$*" >&/dev/null; }   # ql:           Opens any file in MacOS Quicklook Preview
+alias DT='tee ~/Desktop/terminalOut.txt' # DT:           Pipe content to file on MacOS Desktop
+alias cat='bat'                          # cat with syntax highliting and less (navigate using vi keystrokes)
 
 # Manage homestead machine with this function from anywhere
-function h() {
-	(builtin cd ~/Homestead && vagrant $*)
+h() {
+	(builtin cd ~/Homestead && vagrant "$*")
 }
 alias preview="fzf --preview 'bat --color \"always\" {}'"                 # Open a nice view to select file and preview on a second pane
 
@@ -133,24 +134,25 @@ cdf() { # Cd's to frontmost window of MacOS Finder
 EOT
 	)
 	echo "cd to \"$currFolderPath\""
+	# shellcheck disable=SC2164
 	cd "$currFolderPath"
 }
 
 # Extract most know archives with one command
 extract() {
-	if [ -f $1 ]; then
+	if [ -f "$1" ]; then
 		case $1 in
-		*.tar.bz2) tar xjf $1 ;;
-		*.tar.gz) tar xzf $1 ;;
-		*.bz2) bunzip2 $1 ;;
-		*.rar) unrar e $1 ;;
-		*.gz) gunzip $1 ;;
-		*.tar) tar xf $1 ;;
-		*.tbz2) tar xjf $1 ;;
-		*.tgz) tar xzf $1 ;;
-		*.zip) unzip $1 ;;
-		*.Z) uncompress $1 ;;
-		*.7z) 7z x $1 ;;
+		*.tar.bz2) tar xjf "$1" ;;
+		*.tar.gz) tar xzf "$1" ;;
+		*.bz2) bunzip2 "$1" ;;
+		*.rar) unrar e "$1" ;;
+		*.gz) gunzip "$1" ;;
+		*.tar) tar xf "$1" ;;
+		*.tbz2) tar xjf "$1" ;;
+		*.tgz) tar xzf "$1" ;;
+		*.zip) unzip "$1" ;;
+		*.Z) uncompress "$1" ;;
+		*.7z) 7z x "$1" ;;
 		*) echo "'$1' cannot be extracted via extract()" ;;
 		esac
 	else
@@ -166,10 +168,12 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 #   -----------------------------------------------------
 alias qfind="find . -name "              # Quickly search for file
 ff() { /usr/bin/find . -name "$@"; }     # Find file under the current directory
+# shellcheck disable=SC2145
 ffs() { /usr/bin/find . -name "$@"'*'; } # Find file whose name starts with a given string
 ffe() { /usr/bin/find . -name '*'"$@"; } # Find file whose name ends with a given string
 
 # Search for a file using MacOS Spotlight's metadata
+# shellcheck disable=SC2145
 spotlight() { mdfind "kMDItemDisplayName == '$@'wc"; }
 
 #   -----------------------------------------------------
@@ -190,7 +194,7 @@ alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 
 # my_ps: List processes owned by my user:
-my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command; }
+my_ps() { ps "$@" -u "$USER" -o pid,%cpu,%mem,start,time,bsdtime,command; }
 
 #   -----------------------------------------------------
 #   Networking
@@ -227,7 +231,7 @@ ii() {
 }
 
 # When using iTerm will attach to the session to a new tab/window
-ssh() { /usr/bin/ssh -A -t $@ "tmux -CC attach || tmux -CC"; }
+ssh() { /usr/bin/ssh -A -t "$@" "tmux -CC attach || tmux -CC"; }
 
 #   -----------------------------------------------------
 #   Systems Operations & Information
@@ -249,10 +253,10 @@ alias apacheStop='sudo apachectl stop'                                          
 alias apacheStart='sudo apachectl start'                                         # apacheStart:      Start Apache
 alias apacheVhosts='sudo ${EDITOR} /usr/local/etc/httpd/extra/httpd-vhosts.conf' # Edit Apache Vhosts
 alias editHosts='sudo ${EDITOR} /etc/hosts'                                      # editHosts:        Edit /etc/hosts file
-httpHeaders() { /usr/bin/curl -I -L $@; }                                        # httpHeaders:      Grabs headers from web page
+httpHeaders() { /usr/bin/curl -I -L "$@"; }                                      # httpHeaders:      Grabs headers from web page
 
 # Download a web page and show info on what took time
-httpDebug() { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n"; }
+httpDebug() { /usr/bin/curl "$@" -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n"; }
 
 #   -----------------------------------------------------
 #   MISC
