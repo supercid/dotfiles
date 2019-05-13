@@ -150,9 +150,6 @@ $ echo 'KEEP_SUBLIME=1' >> ~/.localrc
 $ rm -rf "$HOME/Library/Application Support/Sublime Text 3" "$HOME/.config/sublime-text-3"
 ```
 
-
-
-
 ## License:
 
 - [License](/LICENSE.md)

@@ -36,6 +36,7 @@ alias runPlay='builtin cd ~/playcart; git stash && git pull --rebase && git stas
 alias dc="docker-compose"
 alias createMariaDBDocker='docker run -p 3306:3306 --name mariadb-m2 -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.0'
 alias startMariaDB='docker start mariadb-m2'
+alias dcdi='docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")' # Docker clear dangling images
 
 #   -----------------------------------------------------
 #   Apache & Logs
@@ -264,3 +265,4 @@ httpDebug() { /usr/bin/curl "$@" -o /dev/null -w "dns: %{time_namelookup} connec
 alias selenium="java -jar /usr/local/bin/selenium-server-standalone-3.13.0.jar"
 alias help="tldr"
 alias genpass="LC_ALL=C tr -dc \"[:alpha:][:alnum:]\" < /dev/urandom | head -c 20 | pbcopy"
+alias shfmt="docker run --rm -v $PWD:/work tmknom/shfmt" # Shell Formatter
