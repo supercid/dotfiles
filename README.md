@@ -150,6 +150,10 @@ $ echo 'KEEP_SUBLIME=1' >> ~/.localrc
 $ rm -rf "$HOME/Library/Application Support/Sublime Text 3" "$HOME/.config/sublime-text-3"
 ```
 
+## iTerm 2 tips
+I've wrote a detailed instructions of how I use iTerm2 and its various functions.
+https://gist.github.com/supercid/1be22a2f5ecd93ea1ce7112aaf929fb8
+
 ## License:
 
 - [License](/LICENSE.md)
