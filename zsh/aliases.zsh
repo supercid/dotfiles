@@ -14,7 +14,7 @@ alias ohmyzsh='${EDITOR} $(antibody home)/https-COLON--SLASH--SLASH-github.com-S
 alias phpserver="php bin/console server:run"
 alias sy="php bin/console"
 alias phing="./vendor/bin/phing validate"
-alias phan="./vendor/bin/phan --config-file=phan.php --output-mode=checkstyle"
+alias phan="./vendor/bin/phan --config-file=phan.php --output-mode=checkstyle -p --color"
 alias runPhan="composer install --quiet; c; phan; composer install --no-dev --quiet"
 
 #   -----------------------------------------------------
@@ -28,7 +28,7 @@ alias m="php bin/magento"
 #   Playcart Specific
 #   -----------------------------------------------------
 alias clearMongo="builtin cd ~/playcart; docker-compose stop mongodb; docker-compose rm -vf mongodb; docker-compose up -d mongodb"
-alias runPlay='builtin cd ~/playcart; git stash && git pull --rebase && git stash pop; docker-compose rm -s -f rediscluster; play clean; eval $(aws ecr get-login --region us-east-1 --no-include-email); play dependencies --sync --%test; docker-compose up -d && docker-compose start; play run'
+alias runPlay='builtin cd ~/playcart; git stash && git pull --rebase && git stash pop; docker-compose rm -s -f rediscluster; play clean; eval $(aws ecr get-login --region us-east-1 --no-include-email); play dependencies --sync --%test; docker-compose up -d && docker-compose start; play run --%nginx'
 
 #   -----------------------------------------------------
 #   Docker
