@@ -37,6 +37,7 @@ alias dc="docker-compose"
 alias createMariaDBDocker='docker run -p 3306:3306 --name mariadb-m2 -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.0'
 alias startMariaDB='docker start mariadb-m2'
 alias dcdi='docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")' # Docker clear dangling images
+alias dcdiq="docker rmi -f $(docker images -f "dangling=true" | tr -s ' ' | cut -f3 -d' ')" ## Remove dangling images without tags
 
 #   -----------------------------------------------------
 #   Apache & Logs
