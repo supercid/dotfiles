@@ -21,8 +21,8 @@ if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'icdiff' || brew install icdiff
 	brew list | grep -q 'speedtest-cli' || brew install speedtest-cli
 	brew list | grep -q 'diff-so-fancy' || brew install diff-so-fancy
-	brew cask list | grep -q 'iterm2' || brew cask install iterm2
-	brew cask list | grep -q 'sublime-text' || brew cask install sublime-text
+	brew cask list iterm2 || brew cask install iterm2
+	brew cask list sublime-text || brew cask install sublime-text
 else
 	echo 'Brew not installed, Skipping packages intallation.'
 fi
