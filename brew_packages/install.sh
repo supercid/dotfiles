@@ -21,6 +21,7 @@ if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'icdiff' || brew install icdiff
 	brew list | grep -q 'speedtest-cli' || brew install speedtest-cli
 	brew list | grep -q 'diff-so-fancy' || brew install diff-so-fancy
+	brew list | grep -q 'thefuck' || brew install thefuck
 	brew cask list iterm2 || brew cask install iterm2
 	brew cask list sublime-text || brew cask install sublime-text
 else

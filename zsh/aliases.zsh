@@ -267,3 +267,4 @@ alias selenium="java -jar /usr/local/bin/selenium-server-standalone-3.13.0.jar"
 alias help="tldr"
 alias genpass="LC_ALL=C tr -dc \"[:alpha:][:alnum:]\" < /dev/urandom | head -c 20 | pbcopy"
 alias shfmt="docker run --rm -v $PWD:/work tmknom/shfmt" # Shell Formatter
+eval $(thefuck --alias)
