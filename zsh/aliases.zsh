@@ -20,15 +20,9 @@ alias runPhan="composer install --quiet; c; phan; composer install --no-dev --qu
 #   -----------------------------------------------------
 #   Magento
 #   -----------------------------------------------------
-alias m2reset="bin/magento module:enable --clear-static-content Nosto_Tagging; bin/magento setup:upgrade; bin/magento setup:di:compile; bin/magento setup:static-content:deploy; bin/magento cache:clean"
+alias m2reset="bin/magento setup:upgrade; bin/magento setup:di:compile; bin/magento setup:static-content:deploy; bin/magento cache:clean"
 alias mc="magento-cloud"
 alias m="php bin/magento"
-
-#   -----------------------------------------------------
-#   Playcart Specific
-#   -----------------------------------------------------
-alias clearMongo="builtin cd ~/playcart; docker-compose stop mongodb; docker-compose rm -vf mongodb; docker-compose up -d mongodb"
-alias runPlay='builtin cd ~/playcart; git stash && git pull --rebase && git stash pop; docker-compose rm -s -f rediscluster; play clean; eval $(aws ecr get-login --region us-east-1 --no-include-email); play dependencies --sync --%test; docker-compose up -d && docker-compose start; play run --%nginx'
 
 #   -----------------------------------------------------
 #   Docker
@@ -38,38 +32,6 @@ alias createMariaDBDocker='docker run -p 3306:3306 --name mariadb-m2 -e MYSQL_RO
 alias startMariaDB='docker start mariadb-m2'
 alias dcdi='docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")' # Docker clear dangling images
 alias dcdiq="docker rmi -f $(docker images -f "dangling=true" | tr -s ' ' | cut -f3 -d' ')" ## Remove dangling images without tags
-
-#   -----------------------------------------------------
-#   Apache & Logs
-#   -----------------------------------------------------
-alias logm1="tail -f /private/var/log/apache2/magento1.dev.nos.to-error_log"
-alias logm1ee="tail -f /private/var/log/apache2/magento1ee.dev.nos.to-error_log"
-alias logm2="tail -f /private/var/log/apache2/magento2.dev.nos.to-error_log"
-alias logm2ee="tail -f /private/var/log/apache2/magento2ee.dev.nos.to-error_log"
-alias logshopware="tail -f /private/var/log/apache2/shopware.dev.nos.to-error_log"
-alias logpresta17="tail -f /private/var/log/apache2/prestashop17.dev.nos.to-error_log"
-alias logpresta16="tail -f /private/var/log/apache2/prestashop16.dev.nos.to-error_log"
-
-# Plugintest Docker Logs --follow
-alias logM1PT="/usr/bin/ssh ext-lamp1.us-east-1.nos.to 'sudo docker logs magento1_web --follow'"
-alias logM2PT="/usr/bin/ssh ext-lamp1.us-east-1.nos.to 'sudo docker logs magento2_web --follow'"
-alias logShopwarePT="/usr/bin/ssh ext-lamp1.us-east-1.nos.to 'sudo docker logs shopware1_web --follow'"
-alias logPrestashopPT="/usr/bin/ssh ext-lamp1.us-east-1.nos.to 'sudo docker logs prestashop1_web --follow'"
-
-#   -----------------------------------------------------
-#   Plugintest Deployments
-#   -----------------------------------------------------
-alias M1CreatePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name magento1 --shoptype magento --action create --use-ssl --mem=4096 --version=1.9.4.0'
-alias M1DeletePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name magento1 --shoptype magento --action delete --use-ssl'
-
-alias M2CreatePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name magento2 --shoptype magento2 --action create --use-ssl --mem=4096 --version 2.3'
-alias M2DeletePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name magento2 --shoptype magento2 --action delete --use-ssl'
-
-alias ShopwareCreatePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name shopware1 --shoptype shopware --action create --use-ssl --mem=4096 --version=5.4'
-alias ShopwareDeletePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name shopware1 --shoptype shopware --action delete --use-ssl'
-
-alias prestashopCreatePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name prestashop1 --shoptype prestashop --action create --use-ssl --mem=4096 --version=1.7.5.0'
-alias prestashopDeletePlugintest='builtin cd ~/Developer/docker; git pull --rebase; tools/manage-testshops.sh --name prestashop1 --shoptype prestashop --action delete'
 
 #   -----------------------------------------------------
 #   Terminal Navigation & Listing Improvements
