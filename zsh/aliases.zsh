@@ -163,7 +163,7 @@ my_ps() { ps "$@" -u "$USER" -o pid,%cpu,%mem,start,time,bsdtime,command; }
 #   -----------------------------------------------------
 #   Networking
 #   -----------------------------------------------------
-alias speedtest="speedtest-cli"                   # Check connection speed
+alias speedtest="speedtest-cli --secure"          # Check connection speed
 alias ping='prettyping --nolegend'                # PrettyPing instead of builtin ping bin
 alias myip='curl ipinfo.io'                       # Public facing IP Address
 alias netCons='lsof -i'                           # Show all open TCP/IP sockets
