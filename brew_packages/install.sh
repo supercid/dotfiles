@@ -68,6 +68,7 @@ if command -v brew >/dev/null 2>&1; then
 	mas lucky "Blackmagic Disk Speed Test"
 	mas lucky spark
 	mas lucky "WhatsApp Desktop"
+	mas install 426410278 # Flexiglass 1.7.1 - No longer developed
 	
 else
 	echo 'Could not install Brew, Skipping packages intallation.'
