@@ -1,5 +1,9 @@
 #!/bin/sh
 if command -v brew >/dev/null 2>&1; then
+	echo 'Brew not install, attempting installation...'
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'bat' || brew install bat
 	brew list | grep -q 'ctop' || brew install ctop
 	brew list | grep -q 'dnsmasq' || brew install dnsmasq
@@ -22,8 +26,8 @@ if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'speedtest-cli' || brew install speedtest-cli
 	brew list | grep -q 'diff-so-fancy' || brew install diff-so-fancy
 	brew list | grep -q 'thefuck' || brew install thefuck
-	brew cask list iterm2 || brew cask install iterm2
-	brew cask list sublime-text || brew cask install sublime-text
+	brew list --cask iterm2 || brew install --cask iterm2
+	brew list --cask sublime-text || brew install --cask sublime-text
 else
-	echo 'Brew not installed, Skipping packages intallation.'
+	echo 'Could not install Brew, Skipping packages intallation.'
 fi
