@@ -32,7 +32,6 @@ if command -v brew >/dev/null 2>&1; then
 	brew list --cask sublime-text || brew install --cask sublime-text
 	brew list --cask visual-studio-code || brew install --cask visual-studio-code
 	brew list --cask alfred || brew install --cask alfred
-	brew list --cask sequel-pro || brew install --cask sequel-pro
 	brew list --cask mysqlworkbench || brew install --cask mysqlworkbench
 	brew list --cask jetbrains-toolbox || brew install --cask jetbrains-toolbox
 	brew list --cask docker || brew install --cask docker
@@ -58,6 +57,7 @@ if command -v brew >/dev/null 2>&1; then
 	brew list --cask spotify || brew install --cask spotify
 	brew list --cask the-unarchiver || brew install --cask the-unarchiver
 	brew list --cask intel-power-gadget || brew install --cask intel-power-gadget
+	brew list --cask sequel-ace || brew install --cask sequel-ace
 
 	# Need to be logged into mac app store beforehand
 	mas lucky tweetbot
