@@ -10,6 +10,7 @@ robbyrussell/oh-my-zsh path:plugins/git
 rupa/z
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
+Aloxaf/fzf-tab
 
 # these should be at last!
 zdharma/fast-syntax-highlighting
