@@ -30,10 +30,10 @@ First, make sure you have all those things installed:
 Then, run these steps:
 
 ```console
-$ git clone https://github.com/supercid/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ ./script/bootstrap
-$ zsh # or just close and open your terminal again.
+git clone https://github.com/supercid/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+./script/bootstrap
+zsh # or just close and open your terminal again.
 ```
 
 > All changed files will be backed up with a `.backup` suffix.
