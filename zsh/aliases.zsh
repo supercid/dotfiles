@@ -25,6 +25,13 @@ alias ds="docker-sync"
 alias dcdi='docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")' # Docker clear dangling images
 alias dcdiq="docker rmi -f $(docker images -f "dangling=true" | tr -s ' ' | cut -f3 -d' ')" ## Remove dangling images without tags
 
+
+#   -----------------------------------------------------
+#   Magento
+#   -----------------------------------------------------
+alias m2reset="bin/magento setup:upgrade; bin/magento setup:di:compile; bin/magento setup:static-content:deploy; bin/magento cache:clean"
+alias m="bin/magento"
+
 #   -----------------------------------------------------
 #   Terminal Navigation & Listing Improvements
 #   -----------------------------------------------------
