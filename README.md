@@ -110,11 +110,11 @@ There are a few special files in the hierarchy:
 
 ### ZSH plugins
 
-This project uses the [powerlevel9k][powerlevel9k] theme with oh-my-zsh and some other
+This project uses the [powerlevel10k][powerlevel10k] theme with oh-my-zsh and some other
 [zsh plugins](/antibody/bundles.txt). All of them managed by [Antibody](http://getantibody.github.io/),
 a faster and simpler Antigen-like program written in Go.
 
-[powerlevel9k]: https://github.com/bhilburn/powerlevel9k
+[powerlevel10k]: https://github.com/romkatv/powerlevel10k
 
 ### Compatibility
 
