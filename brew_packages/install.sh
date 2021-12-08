@@ -56,6 +56,7 @@ if command -v brew >/dev/null 2>&1; then
 		brew list --cask the-unarchiver || brew install --cask the-unarchiver
 		brew list --cask intel-power-gadget || brew install --cask intel-power-gadget
 		brew list --cask sequel-ace || brew install --cask sequel-ace
+		brew list --cask rectangle || brew install --cask rectangle
 
 		# Need to be logged into mac app store beforehand
 		mas lucky tweetbot
@@ -66,7 +67,7 @@ if command -v brew >/dev/null 2>&1; then
 		mas lucky "Blackmagic Disk Speed Test"
 		mas lucky spark
 		mas lucky "WhatsApp Desktop"
-		mas install 426410278 # Flexiglass 1.7.1 - No longer developed
+		#mas install 426410278 # Flexiglass 1.7.1 - No longer developed
 	fi
 	
 else
