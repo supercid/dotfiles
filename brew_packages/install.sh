@@ -20,8 +20,8 @@ if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'tmux' || brew install tmux
 	brew list | grep -q 'icdiff' || brew install icdiff
 	brew list | grep -q 'speedtest-cli' || brew install speedtest-cli
-	brew list | grep -q 'diff-so-fancy' || brew install diff-so-fancy
 	brew list | grep -q 'thefuck' || brew install thefuck
+	brew list | grep -q 'git-delta' || brew install git-delta
 	
 	if [ "$(uname -s)" = "Darwin" ]; then
 		# Casks are not available on Linux
@@ -57,6 +57,7 @@ if command -v brew >/dev/null 2>&1; then
 		brew list --cask intel-power-gadget || brew install --cask intel-power-gadget
 		brew list --cask sequel-ace || brew install --cask sequel-ace
 		brew list --cask rectangle || brew install --cask rectangle
+
 
 		# Need to be logged into mac app store beforehand
 		mas lucky tweetbot
