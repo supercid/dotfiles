@@ -4,6 +4,7 @@ if ! command -v brew >/dev/null 2>&1; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 if command -v brew >/dev/null 2>&1; then
+	brew list | grep -q 'fish' || brew install fish
 	brew list | grep -q 'bat' || brew install bat
 	brew list | grep -q 'ctop' || brew install ctop
 	brew list | grep -q 'dnsmasq' || brew install dnsmasq
