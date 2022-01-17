@@ -22,6 +22,7 @@ if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'speedtest-cli' || brew install speedtest-cli
 	brew list | grep -q 'thefuck' || brew install thefuck
 	brew list | grep -q 'git-delta' || brew install git-delta
+	brew list | grep -q 'hyperfine' || brew install hyperfine
 	
 	if [ "$(uname -s)" = "Darwin" ]; then
 		# Casks are not available on Linux
