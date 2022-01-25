@@ -1,8 +1,4 @@
 #!/bin/sh
-if ! command -v brew >/dev/null 2>&1; then
-	echo 'Brew not installed, attempting installation...'
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
 if command -v brew >/dev/null 2>&1; then
 	brew list | grep -q 'fish' || brew install fish
 	brew list | grep -q 'bat' || brew install bat
@@ -76,5 +72,5 @@ if command -v brew >/dev/null 2>&1; then
 	fi
 	
 else
-	echo 'Could not install Brew, Skipping packages intallation.'
+	echo 'Brew not found, skipping packages intallation.'
 fi
