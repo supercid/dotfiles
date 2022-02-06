@@ -1,0 +1,6 @@
+Host *
+  ServerAliveInterval 60
+  StrictHostKeyChecking no
+
+
+Include ~/.ssh/config.local

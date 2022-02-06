@@ -22,7 +22,7 @@ First, make sure you have all those things installed:
 - `git`: to clone the repo
 - `curl`: to download some stuff
 - `tar`: to extract downloaded stuff
-- `zsh`: to actually run the dotfiles
+- `fish`: to actually run the dotfiles
 - `sudo`: some configs may need that
 
 ### Install
