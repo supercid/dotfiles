@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
 if type -q brew
-	brew list | grep 'fish' >> /dev/null; or brew install fish
 	brew list | grep 'bat' >> /dev/null; or brew install bat
 	brew list | grep 'ctop' >> /dev/null; or brew install ctop
 	brew list | grep 'dnsmasq' >> /dev/null; or brew install dnsmasq
@@ -22,7 +21,7 @@ if type -q brew
 	brew list | grep 'git-delta'  >> /dev/null; or brew install git-delta
 	brew list | grep 'hyperfine' >> /dev/null; or brew install hyperfine
 	brew list | grep 'curlie' >> /dev/null; or brew install rs/tap/curlie
-
+	brew list | grep 'hyperfine' >> /dev/null; or brew install hyperfine
 	
 	switch (uname)
 		case Darwin
