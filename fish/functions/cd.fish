@@ -1,5 +1,5 @@
 function cd 
 	# Always list directory contents upon 'cd'
 	builtin cd $argv
-	l
+	exa -a --long --grid --git
 end
