@@ -70,7 +70,8 @@ if type -q brew
 			mas lucky spark
 			mas lucky "WhatsApp Desktop"
 			#mas install 426410278 # Flexiglass 1.7.1 - No longer developed
-		end
+		case '*'
+			echo "Could not detect OS!" 
 	end
 	
 else
