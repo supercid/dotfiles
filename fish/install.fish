@@ -48,26 +48,21 @@ function cd
 	l
 end 
 
-abbr -a cd .='cd ../'                       # Go back 1 directory level
-abbr -a ..='cd ../'                         # Go back 1 directory level
-abbr -a ...='cd ../../'                     # Go back 2 directory levels
-abbr -a .3 'cd ../../../'                   # Go back 3 directory levels
-abbr -a .4 'cd ../../../../'                # Go back 4 directory levels
-abbr -a .5 'cd ../../../../../'             # Go back 5 directory levels
-abbr -a .6 'cd ../../../../../../'          # Go back 6 directory levels
 abbr -a edit '$EDITOR '                     # edit:         Opens any file in default editor
 abbr -a f 'open -a Finder ./'               # f:            Opens current directory in Finder
-abbr -a ~="cd ~"                            # ~:            Go Home
+abbr -a ~ "cd ~"                            # ~:            Go Home
 abbr -a c 'clear'                           # c:            Clear terminal display
 abbr -a which 'type -a'                     # which:        Find executables
 abbr -a fix_stty 'stty sane'                # fix_stty:     Restore terminal settings when screwed up
 abbr -a cic 'set completion-ignore-case On' # cic:          Make tab-completion case-insensitive
 
-function mcd # Makes new Dir and jumps inside
+function mcd 
+	# Makes new Dir and jumps inside
 	mkdir -p $argv && cd $argv; 
 end
 
-function trash # Moves a file to the MacOS trash
+function trash
+	# Moves a file to the MacOS trash
 	command mv $argv ~/.Trash;
 end
 
@@ -194,4 +189,3 @@ end
 abbr -a help "tldr"
 abbr -a genpass "LC_ALL=C tr -dc \"[:alpha:][:alnum:]\" < /dev/urandom | head -c 20 | pbcopy"
 abbr -a shfmt "docker run --rm -v $PWD:/work tmknom/shfmt" # Shell Formatter
-eval (thefuck --alias)
