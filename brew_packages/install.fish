@@ -6,7 +6,6 @@ if type -q brew
 	brew list | grep 'dnsmasq' >> /dev/null; or brew install dnsmasq
 	brew tap  | grep 'moncho/dry' >> /dev/null; or brew tap moncho/dry
 	brew list | grep 'dry' >> /dev/null; or brew install dry
-	brew list | grep 'powerlevel10k' >> /dev/null; or brew install romkatv/powerlevel10k/powerlevel10k
 	brew list | grep 'exa' >> /dev/null; or brew install exa
 	brew list | grep 'fasd' >> /dev/null; or brew install fasd
 	brew list | grep 'fzf' >> /dev/null; or brew install fzf
@@ -24,7 +23,7 @@ if type -q brew
 	brew list | grep 'hyperfine' >> /dev/null; or brew install hyperfine
 	
 	switch (uname)
-		case Darwin
+		case skip
 			# Casks are not available on Linux
 			brew list | grep 'mas' >> /dev/null; or brew install mas
 			brew list --cask iterm2; or brew install --cask iterm2
