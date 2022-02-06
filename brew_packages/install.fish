@@ -21,6 +21,9 @@ if type -q brew
 	brew list | grep 'hyperfine' >> /dev/null; or brew install hyperfine
 	brew list | grep 'curlie' >> /dev/null; or brew install rs/tap/curlie
 	brew list | grep 'hyperfine' >> /dev/null; or brew install hyperfine
+	brew list | grep 'starship' >> /dev/null; or brew install starship
+	brew list | grep 'kubectx' >> /dev/null; or brew install kubectx
+	brew list | grep 'grc' >> /dev/null; or brew install grc
 	
 	switch (uname)
 		case Darwin
