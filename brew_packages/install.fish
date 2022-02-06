@@ -23,7 +23,7 @@ if type -q brew
 	brew list | grep 'hyperfine' >> /dev/null; or brew install hyperfine
 	
 	switch (uname)
-		case skip
+		case Darwin
 			# Casks are not available on Linux
 			brew list | grep 'mas' >> /dev/null; or brew install mas
 			brew list --cask iterm2; or brew install --cask iterm2
