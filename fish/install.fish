@@ -22,9 +22,8 @@ abbr -a runPhan "composer install --quiet; c; phan; composer install --no-dev --
 #   -----------------------------------------------------
 abbr -a dc "docker-compose"
 abbr -a ds "docker-sync"
-abbr -a dcdi 'docker rmi -f (docker images | grep "^<none>" | awk "{print $argv[3]}")'         # Docker clear dangling images
+abbr -a dcdi 'docker rmi -f (docker images | grep "latest" | awk \'{print $3}\')' # Docker clear dangling images
 abbr -a dcdiq "docker rmi -f (docker images -f \"dangling=true\" | tr -s ' ' | cut -f3 -d' ')" # Remove dangling images without tags
-
 
 #   -----------------------------------------------------
 #   Magento
