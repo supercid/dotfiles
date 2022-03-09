@@ -222,4 +222,20 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Terminal" "Photos"; do
 	killall "$app" >/dev/null 2>&1
 done
+
+############################
+
+echo ""
+echo "› Use home and end keys to jump to end/beginning of the lines"
+
+
+mkdir ~/Library/KeyBindings/
+touch ~/Library/KeyBindings/DefaultKeyBinding.dict
+echo '{
+    "\UF729"  = moveToBeginningOfLine:; // home
+    "\UF72B"  = moveToEndOfLine:; // end
+    "$\UF729" = moveToBeginningOfLineAndModifySelection:; // shift-home
+    "$\UF72B" = moveToEndOfLineAndModifySelection:; // shift-end
+}' >> ~/Library/KeyBindings/DefaultKeyBinding.dict 
+
 set -e
