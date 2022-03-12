@@ -110,3 +110,9 @@ abbr -a cleanupLS "/System/Library/Frameworks/CoreServices.framework/Frameworks/
 abbr -a help "tldr"
 abbr -a genpass "LC_ALL=C tr -dc \"[:alpha:][:alnum:]\" < /dev/urandom | head -c 20 | pbcopy"
 abbr -a shfmt "docker run --rm -v $PWD:/work tmknom/shfmt" # Shell Formatter
+
+#   -----------------------------------------------------
+#   Dual homebrew installation for M1 macs
+#   -----------------------------------------------------
+abbr -a ibrew "arch -x86_64 /usr/local/bin/brew"
+abbr -a mbrew "arch -arm64e /opt/homebrew/bin/brew"
