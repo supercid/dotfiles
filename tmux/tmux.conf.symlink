@@ -104,8 +104,8 @@ bind -r ( switch-client -p
 bind -r ) switch-client -n
 
 # Set zsh as default shell
-set -g default-command /bin/zsh
-set -g default-shell /bin/zsh
+set -g default-command /usr/bin/zsh
+set -g default-shell /usr/bin/zsh
 
 # Recording  program output to a log
 bind P pipe-pane -o "cat >>~/#W.log" \; display "Toggled logging to ~/#W.log"
