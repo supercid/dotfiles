@@ -28,7 +28,7 @@ abbr -a dcdiq "docker rmi -f (docker images -f \"dangling=true\" | tr -s ' ' | c
 #   -----------------------------------------------------
 #   Magento
 #   -----------------------------------------------------
-abbr -a m2reset "bin/magento setup:upgrade; bin/magento setup:di:compile; bin/magento setup:static-content:deploy; bin/magento cache:clean"
+abbr -a m2reset "bin/magento module:enable --clear-static-content -f Nosto_Tagging; bin/magento setup:upgrade; bin/magento setup:di:compile; bin/magento setup:static-content:deploy; bin/magento cache:clean"
 abbr -a m "bin/magento"
 
 #   -----------------------------------------------------
