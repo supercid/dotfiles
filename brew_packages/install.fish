@@ -24,6 +24,7 @@ if type -q brew
 	brew list | grep 'starship' >> /dev/null; or brew install starship
 	brew list | grep 'kubectx' >> /dev/null; or brew install kubectx
 	brew list | grep 'grc' >> /dev/null; or brew install grc
+	brew list | grep 'gh' >> /dev/null; or brew install gh
 	
 	switch (uname)
 		case Darwin
@@ -57,7 +58,6 @@ if type -q brew
 			brew list --cask lunar; or brew install --cask lunar # Control external display brightness
 			brew list --cask spotify; or brew install --cask spotify
 			brew list --cask the-unarchiver; or brew install --cask the-unarchiver
-			brew list --cask intel-power-gadget; or brew install --cask intel-power-gadget
 			brew list --cask sequel-ace; or brew install --cask sequel-ace
 			brew list --cask rectangle; or brew install --cask rectangle
 
