@@ -1,5 +1,5 @@
 [aws]
-disabled = true
+disabled = false
 
 [cmake]
 disabled = true
@@ -46,7 +46,7 @@ disabled = true
 symbol = " "
 
 [git_status]
-format = "[$ahead_behind$untracked$modified]($style) "
+format = "[$ahead_behind$untracked$modified$untracked$stashed]($style) "
 
 [golang]
 disabled = true
@@ -55,7 +55,7 @@ disabled = true
 disabled = true
 
 [java]
-disabled = true
+disabled = false
 
 [jobs]
 disabled = true
@@ -94,7 +94,7 @@ disabled = true
 disabled = true
 
 [php]
-disabled = true
+disabled = false
 
 [purescript]
 disabled = true
@@ -131,3 +131,6 @@ disabled = true
 
 [username]
 format = "[$user]($style)@"
+
+[status]
+disabled = false
