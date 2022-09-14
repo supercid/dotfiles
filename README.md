@@ -2,7 +2,7 @@
 
 > Config files for fish, Editors, Terminals and more.
 
-![screenshot](https://user-images.githubusercontent.com/2778820/55534888-2ec5ca00-56be-11e9-8303-ce0997164b06.png)
+![screenshot](https://user-images.githubusercontent.com/2778820/190071971-de22780e-9978-4fcc-8242-922da8bbc9d0.png)
 
 ## Installation
 
