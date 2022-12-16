@@ -37,7 +37,7 @@ abbr -a m "bin/magento"
 abbr -a cp 'cp -iv'                            # Preferred 'cp' implementation
 abbr -a mv 'mv -iv'                            # Preferred 'mv' implementation
 abbr -a mkdir 'mkdir -pv'                      # Preferred 'mkdir' implementation
-abbr -a l 'exa -a --long --grid --git'         # Preferred 'ls' implementation using exa for colors, grid and git
+abbr -a l 'exa -a --long --grid --git --icons' # Preferred 'ls' implementation using exa for colors, grid and git
 abbr -a ll 'ls -FGlAhp'                        # Preferred 'ls' implementation
 abbr -a less 'less -FSRXc'                     # Preferred 'less' implementation
 abbr -a edit '$EDITOR '                        # edit:         Opens any file in default editor
