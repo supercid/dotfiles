@@ -9,19 +9,9 @@ set -U fish_greeting
 abbr -a reload! 'exec "$SHELL" -l'
 
 #   -----------------------------------------------------
-#   PHP, the greatest language
-#   -----------------------------------------------------
-abbr -a phpserver "php bin/console server:run"
-abbr -a sy "php bin/console"
-abbr -a phing "./vendor/bin/phing validate"
-abbr -a phan "./vendor/bin/phan --config-file=phan.php --output-mode=checkstyle -p --color"
-abbr -a runPhan "composer install --quiet; c; phan; composer install --no-dev --quiet"
-
-#   -----------------------------------------------------
 #   Docker
 #   -----------------------------------------------------
-abbr -a dc "docker-compose"
-abbr -a ds "docker-sync"
+abbr -a dc "docker compose"
 abbr -a dcdi 'docker rmi -f (docker images | grep "latest" | awk \'{print $3}\')' # Docker clear dangling images
 abbr -a dcdiq "docker rmi -f (docker images -f \"dangling=true\" | tr -s ' ' | cut -f3 -d' ')" # Remove dangling images without tags
 
@@ -110,9 +100,3 @@ abbr -a cleanupLS "/System/Library/Frameworks/CoreServices.framework/Frameworks/
 abbr -a help "tldr"
 abbr -a genpass "LC_ALL=C tr -dc \"[:alpha:][:alnum:]\" < /dev/urandom | head -c 20 | pbcopy"
 abbr -a shfmt "docker run --rm -v $PWD:/work tmknom/shfmt" # Shell Formatter
-
-#   -----------------------------------------------------
-#   Dual homebrew installation for M1 macs
-#   -----------------------------------------------------
-abbr -a ibrew "arch -x86_64 /usr/local/bin/brew"
-abbr -a mbrew "arch -arm64e /opt/homebrew/bin/brew"
