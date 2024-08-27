@@ -8,15 +8,10 @@ root = true
 charset = utf-8
 end_of_line = lf
 indent_size = 4
-indent_style = tab
+indent_style = spaces
 insert_final_newline = true
 max_line_length = 120
 trim_trailing_whitespace = true
 
-[*.{xml,py,java,go,sh}]
-indent_style = tab
-indent_size = 4
-
-[Makefile]
-indent_style = tab
-indent_size = 4
+[java]
+max_line_length = 160
