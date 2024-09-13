@@ -64,7 +64,6 @@ if type -q brew
 			brew list --cask rectangle; or brew install --cask rectangle
 
 			# Need to be logged into mac app store beforehand
-			mas lucky tweetbot # Ivory for mastodon
 			mas lucky todoist
 			mas lucky fantastical
 			mas lucky unclutter
