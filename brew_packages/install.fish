@@ -6,7 +6,7 @@ if type -q brew
 	brew list | grep 'dnsmasq' >> /dev/null; or brew install dnsmasq
 	brew tap  | grep 'moncho/dry' >> /dev/null; or brew tap moncho/dry
 	brew list | grep 'dry' >> /dev/null; or brew install dry
-	brew list | grep 'exa' >> /dev/null; or brew install exa
+	brew list | grep 'eza' >> /dev/null; or brew install eza
 	brew list | grep 'fasd' >> /dev/null; or brew install fasd
 	brew list | grep 'fzf' >> /dev/null; or brew install fzf
 	brew list | grep 'htop' >> /dev/null; or brew install htop
@@ -25,6 +25,9 @@ if type -q brew
 	brew list | grep 'kubectx' >> /dev/null; or brew install kubectx
 	brew list | grep 'grc' >> /dev/null; or brew install grc
 	brew list | grep 'gh' >> /dev/null; or brew install gh
+	brew list | grep 'yazi' >> /dev/null; or brew install yazi
+	brew list | grep 'nnn' >> /dev/null; or brew install nnn
+	brew list | grep 'diskonaut' >> /dev/null; or brew install diskonaut
 	
 	switch (uname)
 		case Darwin
@@ -41,7 +44,6 @@ if type -q brew
 			brew list --cask tower; or brew install --cask tower
 			brew list --cask virtualbox; or brew install --cask virtualbox
 			brew list --cask little-snitch; or brew install --cask little-snitch
-			brew list --cask micro-snitch; or brew install --cask micro-snitch
 			# Internet Browsers
 			brew list --cask brave-browser; or brew install --cask brave-browser
 			brew list --cask firefox; or brew install --cask firefox
@@ -62,15 +64,13 @@ if type -q brew
 			brew list --cask rectangle; or brew install --cask rectangle
 
 			# Need to be logged into mac app store beforehand
-			mas lucky tweetbot
+			mas lucky tweetbot # Ivory for mastodon
 			mas lucky todoist
 			mas lucky fantastical
 			mas lucky unclutter
 			mas lucky spark
 			mas lucky "Blackmagic Disk Speed Test"
-			mas lucky spark
 			mas lucky "WhatsApp Desktop"
-			#mas install 426410278 # Flexiglass 1.7.1 - No longer developed
 		case '*'
 			echo "Could not detect OS!" 
 	end

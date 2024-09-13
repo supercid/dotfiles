@@ -43,7 +43,7 @@ better git diffs (you'll need to run `dot_update` to apply it);
 fuzzy finder, used in `,t` on vim, for example;
 - [`bat`](https://github.com/sharkdp/bat)
 a cat replacement
-- [`exa`](https://github.com/ogham/exa)
+- [`eza`](https://github.com/eza-community/eza)
 a ls replacement
 - [`jq`](https://github.com/stedolan/jq)
 a json processor with syntax highlighting
