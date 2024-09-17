@@ -28,6 +28,7 @@ if type -q brew
 	brew list | grep 'yazi' >> /dev/null; or brew install yazi
 	brew list | grep 'nnn' >> /dev/null; or brew install nnn
 	brew list | grep 'diskonaut' >> /dev/null; or brew install diskonaut
+	brew list | grep 'duf' >> /dev/null; or brew install duf
 	
 	switch (uname)
 		case Darwin
