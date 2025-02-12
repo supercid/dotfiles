@@ -1,9 +1,14 @@
 function ssh
-	# When using iTerm will attach to the session to a new tab/window
-	switch (uname)
-	case Darwin
-		/usr/bin/ssh -A -t "$argv" "tmux -CC attach || tmux -CC";
-	case '*'
-		/usr/bin/ssh $argv
-	end
+    switch (uname)
+    case Darwin
+		set -x TERM xterm-256color
+	    /usr/bin/ssh -t "$argv" 'fish -c "
+		    if test -z \"$TMUX\"
+		        tmux attach || tmux new
+		    else
+		        $SHELL
+		    end"'
+    case '*'
+        /usr/bin/ssh $argv
+    end
 end
