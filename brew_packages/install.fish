@@ -29,6 +29,15 @@ if type -q brew
 	brew list | grep 'nnn' >> /dev/null; or brew install nnn
 	brew list | grep 'diskonaut' >> /dev/null; or brew install diskonaut
 	brew list | grep 'duf' >> /dev/null; or brew install duf
+	brew list | grep 'gitleaks' >> /dev/null; or brew install gitleaks
+	brew list | grep 'lazygit' >> /dev/null; or brew install lazygit
+	brew list | grep 'netcat' >> /dev/null; or brew install netcat
+	brew list | grep 'terraform' >> /dev/null; or brew install terraform
+	brew list | grep 'terragrunt' >> /dev/null; or brew install terragrunt
+	brew list | grep 'tree-sitter' >> /dev/null; or brew install tree-sitter
+	brew list | grep 'prettyping' >> /dev/null; or brew install prettyping
+	brew list | grep 'ripgrep' >> /dev/null; or brew install ripgrep
+	brew list | grep 'mosh' >> /dev/null; or brew install mosh
 	
 	switch (uname)
 		case Darwin
@@ -41,7 +50,6 @@ if type -q brew
 			brew list --cask mysqlworkbench; or brew install --cask mysqlworkbench
 			brew list --cask jetbrains-toolbox; or brew install --cask jetbrains-toolbox
 			brew list --cask docker; or brew install --cask docker
-			brew list --cask keybase; or brew install --cask keybase
 			brew list --cask tower; or brew install --cask tower
 			brew list --cask virtualbox; or brew install --cask virtualbox
 			brew list --cask little-snitch; or brew install --cask little-snitch

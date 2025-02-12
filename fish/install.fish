@@ -16,12 +16,6 @@ abbr -a dcdi 'docker rmi -f (docker images | grep "latest" | awk \'{print $3}\')
 abbr -a dcdiq "docker rmi -f (docker images -f \"dangling=true\" | tr -s ' ' | cut -f3 -d' ')" # Remove dangling images without tags
 
 #   -----------------------------------------------------
-#   Magento
-#   -----------------------------------------------------
-abbr -a m2reset "bin/magento module:enable --clear-static-content Nosto_Tagging; bin/magento setup:upgrade; bin/magento setup:di:compile; bin/magento setup:static-content:deploy -f; bin/magento cache:clean"
-abbr -a m "bin/magento"
-
-#   -----------------------------------------------------
 #   Terminal Navigation & Listing Improvements
 #   -----------------------------------------------------
 abbr -a cp 'cp -iv'                            # Preferred 'cp' implementation
