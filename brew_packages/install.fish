@@ -34,7 +34,7 @@ if type -q brew
 		case Darwin
 			# Casks are not available on Linux
 			brew list | grep 'mas' >> /dev/null; or brew install mas
-			brew list --cask iterm2; or brew install --cask iterm2
+			brew list --cask ghostty; or brew install --cask ghostty
 			brew list --cask sublime-text; or brew install --cask sublime-text
 			brew list --cask visual-studio-code; or brew install --cask visual-studio-code
 			brew list --cask alfred; or brew install --cask alfred
