@@ -78,7 +78,11 @@ if type -q brew
 			mas lucky unclutter
 			mas lucky spark
 			mas lucky "Blackmagic Disk Speed Test"
-			mas lucky "WhatsApp Desktop"
+			mas lucky "WhatsApp"
+			mas lucky "Proton Pass for Safari"
+			mas lucky "WireGuard"
+			mas lucky "Velja"
+			mas lucky "Pastebot"
 		case '*'
 			echo "Could not detect OS!" 
 	end
