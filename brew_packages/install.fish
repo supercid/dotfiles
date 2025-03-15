@@ -38,11 +38,13 @@ if type -q brew
 	brew list | grep 'prettyping' >> /dev/null; or brew install prettyping
 	brew list | grep 'ripgrep' >> /dev/null; or brew install ripgrep
 	brew list | grep 'mosh' >> /dev/null; or brew install mosh
+	brew list | grep 'gpg' >> /dev/null; or brew install gpg
 	
 	switch (uname)
 		case Darwin
 			# Casks are not available on Linux
 			brew list | grep 'mas' >> /dev/null; or brew install mas
+			brew list | grep 'pinentry-mac' >> /dev/null; or brew install pinentry-mac
 			brew list --cask ghostty; or brew install --cask ghostty
 			brew list --cask sublime-text; or brew install --cask sublime-text
 			brew list --cask visual-studio-code; or brew install --cask visual-studio-code
@@ -82,7 +84,7 @@ if type -q brew
 			mas lucky "Proton Pass for Safari"
 			mas lucky "WireGuard"
 			mas lucky "Velja"
-			mas lucky "Pastebot"
+			#mas lucky "Pastebot"
 		case '*'
 			echo "Could not detect OS!" 
 	end
