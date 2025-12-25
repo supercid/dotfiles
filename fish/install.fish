@@ -93,4 +93,3 @@ abbr -a cleanupLS "/System/Library/Frameworks/CoreServices.framework/Frameworks/
 #   -----------------------------------------------------
 abbr -a help "tldr"
 abbr -a genpass "LC_ALL=C tr -dc \"[:alpha:][:alnum:]\" < /dev/urandom | head -c 20 | pbcopy"
-abbr -a shfmt "docker run --rm -v $PWD:/work tmknom/shfmt" # Shell Formatter
