@@ -16,9 +16,6 @@ if type -q brew
 	brew list | grep 'gh' >> /dev/null; or brew install gh
 	brew list | grep 'hyperfine' >> /dev/null; or brew install hyperfine # Benchmarks
 	brew list | grep 'kubectx' >> /dev/null; or brew install kubectx
-	# System stats
-	brew tap  | grep 'moncho/dry' >> /dev/null; or brew tap moncho/dry
-	brew list | grep 'dry' >> /dev/null; or brew install dry
 	brew list | grep 'htop' >> /dev/null; or brew install htop
 	# File management
 	brew list | grep 'yazi' >> /dev/null; or brew install yazi
