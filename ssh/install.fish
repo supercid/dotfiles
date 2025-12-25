@@ -2,7 +2,7 @@
 test -f ~/.ssh/config || touch ~/.ssh/config
 
 grep -q "Include ~/.ssh/config.dotfiles" ~/.ssh/config ||
-	echo "\nInclude ~/.ssh/config.dotfiles" >> ~/.ssh/config
+	echo -e "\nInclude ~/.ssh/config.dotfiles" >> ~/.ssh/config
 
 switch (uname)
 case Darwin
