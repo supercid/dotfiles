@@ -59,13 +59,18 @@
 	lineNumber = true
 [push]
 	default = current
+	autoSetupRemote = true
+[branch]
+	autoSetupMerge = always
+[pull]
+	rebase = true
 [submodule]
 	fetchJobs = 4
 [commit]
 	template = ~/.dotfiles/git/template.txt
 	gpgsign = true
 [log]
-	showSignature = false
+	showSignature = true
 
 [interactive]
 	diffFilter = delta --color-only --features=interactive
