@@ -16,3 +16,6 @@
 dump.rdb
 .env
 .idea
+.claude
+.mcp.json
+CLAUDE.md
