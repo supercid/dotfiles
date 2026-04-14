@@ -8,7 +8,7 @@ if type -q brew
 	brew list | grep 'jq' >> /dev/null; or brew install jq
 	brew list | grep 'eza' >> /dev/null; or brew install eza
 	brew list | grep 'tmux' >> /dev/null; or brew install tmux
-	brew list | grep 'tldr' >> /dev/null; or brew install tldr
+	brew list | grep 'tlrc' >> /dev/null; or brew install tlrc
 	brew list | grep 'speedtest-cli'  >> /dev/null; or brew install speedtest-cli
 	brew list | grep 'thefuck' >> /dev/null; or brew install thefuck
 	brew list | grep 'starship' >> /dev/null; or brew install starship
