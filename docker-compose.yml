@@ -1,0 +1,77 @@
+# Test the dotfiles bootstrap in a throwaway container.
+#
+#   docker compose run --rm dotfiles       # native arch (mac/linux dev box)
+#   docker compose run --rm dotfiles-pi     # linux/arm64, mirrors a Raspberry Pi
+#   docker compose run --rm dotfiles-ci     # linux/amd64, deterministic CI target
+#   docker compose run --rm dotfiles-dood   # + docker CLI, uses the host daemon
+#   docker compose run --rm dotfiles-dind   # + a nested docker daemon (isolated)
+#
+# The first three build the lightweight `base` stage; only the platform differs.
+# Non-native ones run under emulation (needs `docker run --privileged
+# tonistiigi/binfmt --install all` once, or Docker Desktop which bundles it).
+services:
+  dotfiles:
+    build:
+      context: .
+      target: base
+    image: dotfiles-test
+    container_name: dotfiles-test
+    stdin_open: true
+    tty: true
+    command: fish -l
+
+  dotfiles-pi:
+    build:
+      context: .
+      target: base
+    platform: linux/arm64
+    image: dotfiles-test-arm64
+    container_name: dotfiles-test-pi
+    stdin_open: true
+    tty: true
+    command: fish -l
+
+  dotfiles-ci:
+    build:
+      context: .
+      target: base
+    platform: linux/amd64
+    image: dotfiles-test-amd64
+    container_name: dotfiles-test-ci
+    stdin_open: true
+    tty: true
+    command: fish -l
+
+  # docker-outside-of-docker: the docker CLI in the image talks to the host's
+  # daemon through the mounted socket. Containers you launch are siblings on the
+  # host, not nested. Lightweight, no privileged flag.
+  dotfiles-dood:
+    build:
+      context: .
+      target: dood
+    image: dotfiles-test-dood
+    container_name: dotfiles-test-dood
+    stdin_open: true
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: fish -l
+
+  # docker-in-docker: a fully isolated nested daemon started by the entrypoint.
+  # Requires privileged; /var/lib/docker is a named volume so the nested storage
+  # driver isn't stacked overlay-on-overlay.
+  dotfiles-dind:
+    build:
+      context: .
+      target: dind
+    image: dotfiles-test-dind
+    container_name: dotfiles-test-dind
+    privileged: true
+    stdin_open: true
+    tty: true
+    volumes:
+      - dind-storage:/var/lib/docker
+    command: fish -l
+
+volumes:
+  dind-storage:

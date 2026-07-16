@@ -1,0 +1,78 @@
+name: bootstrap
+
+# Builds the dotfiles image on both architectures. The bootstrap installs every
+# package strictly (brew_packages/install.fish --linux), so this job fails the
+# moment a package is renamed, moved out of the debian repos, or a pinned
+# release asset disappears.
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  schedule:
+    # weekly, to catch upstream packages that move even without a code change
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: build ${{ matrix.platform }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/arm64
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build ${{ matrix.platform }}
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: base
+          platforms: ${{ matrix.platform }}
+          push: false
+          load: false
+
+  docker:
+    name: docker-in-docker smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # exercises the docker CLI install so a moved docker-cli package fails CI
+      - name: Build dood target
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: dood
+          load: true
+          tags: dotfiles-test-dood:ci
+
+      - name: Build dind target
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: dind
+          load: true
+          tags: dotfiles-test-dind:ci
+
+      # prove the nested daemon starts and both `docker run` and `docker compose`
+      # work inside it (compose is a separately-installed plugin)
+      - name: Run docker and docker compose inside docker-in-docker
+        run: |
+          docker run --rm --privileged -v /var/lib/docker \
+            dotfiles-test-dind:ci \
+            fish -lc '
+              docker compose version
+              docker run --rm hello-world | grep -q "Hello from Docker"'
