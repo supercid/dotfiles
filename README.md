@@ -1,117 +1,127 @@
 # Cid's dotfiles
 
-> Config files for fish, Editors, Terminals and more.
+> Config files for fish, editors, terminals and more — for macOS and Linux.
 
-![screenshot](https://user-images.githubusercontent.com/2778820/190071971-de22780e-9978-4fcc-8242-922da8bbc9d0.png)
+![screenshot](screenshots/terminal.png)
 
 ## Installation
 
 ### Dependencies
 
-First, make sure you have all those things installed:
+First, make sure you have these installed:
 
 - `git`: to clone the repo
 - `curl`: to download some stuff
 - `tar`: to extract downloaded stuff
 - `fish`: to actually run the dotfiles
-- `sudo`: some configs may need that
+- `sudo`: some configs may need it
 
 ### Install
 
-Then, run these steps:
+Then run:
 
 ```console
 git clone https://github.com/supercid/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-./script/bootstrap
-zsh # or just close and open your terminal again.
+./script/bootstrap.fish        # macOS
+./script/bootstrap.fish --linux # Linux (installs packages via apt where possible)
 ```
 
-> All changed files will be backed up with a `.backup` suffix.
+Then close and open your terminal again.
 
-### Recommended Software
+> All changed files are backed up with a `.backup` suffix.
 
-For macOS, I recommend:
+The `--linux` flag makes the bootstrap install the toolset with `apt-get`,
+falling back to pinned upstream release binaries for the tools Debian doesn't
+package (neovim, yazi, terraform, terragrunt, curlie, red-tldr, …). It fails
+loudly if any expected tool is missing, so it doubles as a CI check.
 
-- iTerm: a better terminal emulator;
-You can install by running 
- `brew cask install iterm2`
+## Testing in Docker
 
-- [`diff-so-fancy`](https://github.com/so-fancy/diff-so-fancy):
-better git diffs (you'll need to run `dot_update` to apply it);
-- [`fzf`](https://github.com/junegunn/fzf):
-fuzzy finder, used in `,t` on vim, for example;
-- [`bat`](https://github.com/sharkdp/bat)
-a cat replacement
-- [`eza`](https://github.com/eza-community/eza)
-a ls replacement
-- [`jq`](https://github.com/stedolan/jq)
-a json processor with syntax highlighting
-- [`starship.rs`](https://starship.rs) the shell we are using
-- [`kubectx`](https://github.com/ahmetb/kubectx) for better Kubernetes context and namespace switch;
-- [`grc`](https://github.com/garabik/grc) to colorize command's outputs;
-- [`gh`](https://github.com/cli/cli) for more GitHub integration with the terminal;
+The whole setup can be built and exercised in a throwaway container — handy for
+trying changes without touching your machine, and for CI:
 
+```console
+docker compose run --rm dotfiles       # native arch (mac/linux dev box)
+docker compose run --rm dotfiles-pi     # linux/arm64, mirrors a Raspberry Pi
+docker compose run --rm dotfiles-ci     # linux/amd64, deterministic CI target
+docker compose run --rm dotfiles-dood   # + docker CLI, uses the host daemon
+docker compose run --rm dotfiles-dind   # + a nested docker daemon (isolated)
+```
 
-### macOS defaults
+The GitHub Actions workflow builds the image on both architectures and runs a
+docker-in-docker smoke test, so a package that moves or disappears turns CI red.
 
-You use it by running: **Read and tweak it first**!
+## Recommended software
+
+For macOS I recommend:
+
+- [`ghostty`](https://ghostty.org): the terminal emulator I use;
+- [`fzf`](https://github.com/junegunn/fzf): fuzzy finder;
+- [`bat`](https://github.com/sharkdp/bat): a `cat` replacement;
+- [`eza`](https://github.com/eza-community/eza): a `ls` replacement;
+- [`jq`](https://github.com/jqlang/jq): a JSON processor with syntax highlighting;
+- [`starship`](https://starship.rs): the prompt this config uses;
+- [`git-delta`](https://github.com/dandavison/delta): better git diffs;
+- [`kubectx`](https://github.com/ahmetb/kubectx): quick Kubernetes context/namespace switching;
+- [`grc`](https://github.com/garabik/grc): colorize command output;
+- [`gh`](https://github.com/cli/cli): GitHub from the terminal.
+
+The full list of what gets installed lives in `brew_packages/install.fish`.
+
+### Fonts
+
+The prompt and file listings use Nerd Font glyphs. The `fonts` topic installs
+Inconsolata (Nerd Font) — configure your terminal to use it.
+
+## Editor
+
+Neovim is configured with [LazyVim](https://www.lazyvim.org); the config is
+versioned under `nvim/config` and symlinked to `~/.config/nvim`. On Linux the
+bootstrap installs a Neovim release new enough for LazyVim.
+
+## macOS defaults
+
+Run it — **read and tweak it first!**
 
 ```console
 $DOTFILES/macos/set-defaults.sh
 ```
 
-And logging out and in again/restart.
+Then log out and back in / restart.
 
-### Default `EDITOR` and `PROJECTS`
+## Default `EDITOR` and `PROJECTS`
 
-The default `EDITOR` right now is `subl`, which is the Sublime Text editor. 
-You can change that by adding your custom override.
+The default `EDITOR` is `vim`; override it with your own local config.
+`PROJECTS` defaults to `~/Developer`, and the shortcut to that folder in the
+shell is `dev`.
 
-`PROJECTS` is default to `~/Developer`. The shortcut to that folder in the shell
-is `dev`.
+## Topical
 
-### Topical
-
-Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Erlang" — you can simply add a `erlang` directory and
-put files in there. Anything with an extension of `.fish` will get automatically
-included into your shell. Anything with an extension of `.symlink` will get
-symlinked without extension into `$HOME` when you run `script/bootstrap.fish`.
-
-
-### Compatibility
-
-Since i pretty much only use macOS, i dropped the support for linux from the 
-original fork of this project.
+Everything's built around topic areas. To add a new area to your forked
+dotfiles — say, "Erlang" — add an `erlang` directory and put files in it.
+Anything in a `conf.d` directory or with a `.fish` function is linked into your
+fish config. Anything with a `.symlink` extension is symlinked without the
+extension into `$HOME` when you run `script/bootstrap.fish`.
 
 ## Personalization
 
-> How to add custom configuration without messing the local repository
-
+> How to add custom configuration without messing up the local repository.
 
 ### For git
 
-You can just change the default `~/.gitconfig` file, since it includes the
-dotfiles managed one.
-
+Change `~/.gitconfig` directly — it includes the dotfiles-managed one.
 
 ### For ssh
 
-You can edit the `~/.ssh/config.local` file.
+Edit `~/.ssh/config.local`.
 
-
-## iTerm 2 tips
-I've wrote a detailed instructions of how I use iTerm2 and its various functions.
-https://gist.github.com/supercid/1be22a2f5ecd93ea1ce7112aaf929fb8
-
-## License:
+## License
 
 - [License](/LICENSE.md)
 
 ## Contributing
 
-Feel free to contribute. Pull requests will be automatically
-checked/linted with [Shellcheck](https://github.com/koalaman/shellcheck)
-and [shfmt](https://github.com/mvdan/sh).
-
+Feel free to contribute. Pull requests are automatically checked/linted with
+[Shellcheck](https://github.com/koalaman/shellcheck) and
+[shfmt](https://github.com/mvdan/sh).
