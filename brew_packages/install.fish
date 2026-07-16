@@ -56,7 +56,6 @@ if type -q brew
 			brew list --cask firefox; or brew install --cask firefox
 			brew list --cask google-chrome; or brew install --cask google-chrome
 			
-			brew list --cask wireshark; or brew install --cask wireshark
 			brew list --cask kap; or brew install --cask kap # Screen captures
 			brew list --cask postman; or brew install --cask postman
 			brew list --cask vlc; or brew install --cask vlc
@@ -75,7 +74,6 @@ if type -q brew
 			mas lucky spark
 			mas lucky "Blackmagic Disk Speed Test"
 			mas lucky "WhatsApp"
-			mas lucky "WireGuard"
 			mas lucky "Velja"
 			mas lucky "Pastebot"
 		case '*'
