@@ -1,7 +1,6 @@
-#!/usr/bin/env fish
-set -U fish_greeting
+set -g fish_greeting
 
-# This file hold most of my aliases
+# This file hold most of my aliases, sourced on every shell startup
 
 #   -----------------------------------------------------
 #   Shell

@@ -92,6 +92,16 @@ function install_dotfiles
 			or abort 'failed to link config file'
 	end
 
+	for src in $DOTFILES_ROOT/*/functions/*.fish
+		link_file $src $__fish_config_dir/functions/(basename $src) backup
+			or abort 'failed to link fish function'
+	end
+
+	for src in $DOTFILES_ROOT/*/conf.d/*.fish
+		link_file $src $__fish_config_dir/conf.d/(basename $src) backup
+			or abort 'failed to link fish conf.d file'
+	end
+
 	link_file $DOTFILES_ROOT/fisher/plugins $__fish_config_dir/fish_plugins backup
 		or abort plugins
 	link_file $DOTFILES_ROOT/bat/config $HOME/.config/bat/config backup
@@ -129,7 +139,7 @@ mkdir -p ~/.config/fish/completions/
 	or abort 'completions'
 
 for installer in */install.fish
-	$installer
+	$installer $argv
 		and success $installer
 		or abort $installer
 end
