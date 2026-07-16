@@ -1,0 +1,7 @@
+columns:
+- status
+- name
+- host
+- compose
+- cpu
+- memory
