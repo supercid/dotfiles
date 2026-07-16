@@ -19,3 +19,7 @@ dump.rdb
 .claude
 .mcp.json
 CLAUDE.md
+.graphifyignore
+graphify-out
+.DS_Store
+/phpstan_new.neon
