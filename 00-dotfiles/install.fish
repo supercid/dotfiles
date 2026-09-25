@@ -4,6 +4,7 @@ set -Ux VISUAL $EDITOR
 set -Ux WEDITOR code
 
 set -Ux DOTFILES ~/.dotfiles
+set -Ux dotfiles $DOTFILES
 set -Ux PROJECTS ~/Developer
 
 for p in $DOTFILES/bin $HOME/.bin
