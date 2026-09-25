@@ -11,7 +11,7 @@ abbr -a reload! 'exec "$SHELL" -l'
 #   Docker
 #   -----------------------------------------------------
 abbr -a dc "docker compose"
-abbr -a dcdi 'docker rmi -f (docker images | grep "latest" | awk \'{print $3}\')' # Docker clear dangling images
+abbr -a dcdi 'docker rmi -f (docker images | grep "latest" | awk \'{print $2}\')' # Docker clear dangling images
 abbr -a dcdiq "docker rmi -f (docker images -f \"dangling=true\" | tr -s ' ' | cut -f3 -d' ')" # Remove dangling images without tags
 
 #   -----------------------------------------------------
